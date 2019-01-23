@@ -65,6 +65,7 @@ Game.move = function () {
 
 	if (keyLeft || keyRight || keyDown || keyUp){
 		Game.moveSprite();
+		Game.moveFollowSprite();
 	}
 }
 
@@ -75,9 +76,15 @@ Game.moveSprite = function () {
 	sprite.runAction( sprite_action );
 }
 Game.rotateSprite = function () {
-	var action = cc.RotateBy.create(2, 130);
-	var repeate_action = cc.Repeat.create(action, 3);
+	var action = cc.RotateBy.create(2, 360);
+	var repeate_action = cc.Repeat.create(action, 10);
 	spritethorn.runAction( repeate_action );
+}
+Game.moveFollowSprite = function () {
+	var x_thorn = spritethorn.getPosition().x;
+	var y_thorn = spritethorn.getPosition().y;
+	var move_action_thorn = cc.MoveTo.create( weight, cc.p( x_thorn + speedX * speed, y_thorn + speedY * speed ));
+	spritethorn.runAction( move_action_thorn );
 }
 if ('keyboard' in cc.sys.capabilities) {
 
