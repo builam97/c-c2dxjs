@@ -1,5 +1,5 @@
 Game.res = { 
-  HelloWorld_png : "HelloWorld.png" 
+  HelloWorld_png : "image/background.png" 
 };
 
 Game.g_resources = []; 

@@ -1,10 +1,9 @@
 Game.scenes[1].extend = cc.Scene.extend({
 	onEnter: function () {
 		this._super();
-		var layer = new Game.layers[1].extend();
+    var layer = new Game.layers[1].extend();
 		layer.init();
-		this.addChild(layer);
-
+    this.addChild(layer);
 		this.scheduleUpdate();
 	},
 	update:function(dt){
@@ -78,7 +77,7 @@ Game.moveSprite = function () {
 Game.rotateSprite = function () {
 	var action = cc.RotateBy.create(2, 130);
 	var repeate_action = cc.Repeat.create(action, 3);
-	sprite.runAction( repeate_action );
+	spritethorn.runAction( repeate_action );
 }
 if ('keyboard' in cc.sys.capabilities) {
 
