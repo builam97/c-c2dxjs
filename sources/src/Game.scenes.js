@@ -59,11 +59,11 @@ Game.move = function () {
 	else if (keyLeft) speedX = -1;
 	else speedX = 0;
 
-	if (keyUp) speedY = 1;
-	else if (keyDown) speedY = -1;
-	else speedY = 0;
+	// if (keyUp) speedY = 1;
+	// else if (keyDown) speedY = -1;
+	// else speedY = 0;
 
-	if (keyLeft || keyRight || keyDown || keyUp){
+	if (keyLeft || keyRight){
 		Game.moveSprite();
 		Game.moveFollowSprite();
 	}
@@ -72,7 +72,7 @@ Game.move = function () {
 Game.moveSprite = function () {
 	x_sprite = sprite.getPosition().x;
 	y_sprite = sprite.getPosition().y;
-	sprite_action = cc.MoveTo.create( weight, cc.p( x_sprite + speedX * speed, y_sprite + speedY * speed ));
+	sprite_action = cc.MoveTo.create( weight, cc.p( x_sprite + speedX * speed, y_sprite));
 	sprite.runAction( sprite_action );
 }
 Game.rotateSprite = function () {
@@ -83,7 +83,7 @@ Game.rotateSprite = function () {
 Game.moveFollowSprite = function () {
 	var x_thorn = spritethorn.getPosition().x;
 	var y_thorn = spritethorn.getPosition().y;
-	var move_action_thorn = cc.MoveTo.create( weight, cc.p( x_thorn + speedX * speed, y_thorn + speedY * speed ));
+	var move_action_thorn = cc.MoveTo.create( weight, cc.p( x_thorn + speedX * speed, y_thorn));
 	spritethorn.runAction( move_action_thorn );
 }
 if ('keyboard' in cc.sys.capabilities) {

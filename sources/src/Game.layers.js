@@ -47,6 +47,8 @@ ctor:function() {
   this._super();
         this.initWithFile("image/gai1.png");
         this.setScale(0.6);
+        // this.setAnchorPoint(cc.p(1.0, 0.5));
+        // console.log('point: ', cc.p(0.5, 0.5));
         cc.eventManager.addListener(listener.clone(), this);
 }
 });
