@@ -12,6 +12,7 @@ Game.layers[1].extend = cc.Layer.extend({
 //       Game.layers[2].start( game ); 
 // 	} 
 // }); 
+var line;
 Game.layers[1].start = function( game ){ 
     var size = cc.director.getWinSize();
     layer = cc.LayerColor.create(new cc.Color(242,242,242,250), 960, 640); // R+G+B+Opacity+X+Y
@@ -32,6 +33,11 @@ Game.layers[1].start = function( game ){
     sprite_evil = new spriteEvil();
     sprite_evil.setPosition(x_rand_evil, y_rand_evil);
     layer.addChild(sprite_evil);
+    line = new cc.DrawNode.create();
+    line.drawDot(cc.p(100,28), 5,cc.Color(0,0,0,10));
+    spritethorn.addChild(line);
+    layer.addChild(line);
+    console.log('x:', line.getParent());
 };
 var sprite_cactus = cc.Sprite.extend({
     ctor:function() {
@@ -46,7 +52,7 @@ var spriteThorn = cc.Sprite.extend({
 ctor:function() {
   this._super();
         this.initWithFile("image/gai1.png");
-        this.setScale(0.6);
+        this.setScale(0.5);
         // this.setAnchorPoint(cc.p(1.0, 0.5));
         // console.log('point: ', cc.p(0.5, 0.5));
         cc.eventManager.addListener(listener.clone(), this);
